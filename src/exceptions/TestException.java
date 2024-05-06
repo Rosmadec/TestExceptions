@@ -10,7 +10,7 @@ public class TestException {
         System.out.println("BEGIN method4");
         while (true) {
             try {
-                FileOutputStream fos = new FileOutputStream("save.data");
+                FileOutputStream fos = new FileOutputStream("/root/save.data");
                 fos.write("Ok\n".getBytes());
                 fos.close();
                 break;
