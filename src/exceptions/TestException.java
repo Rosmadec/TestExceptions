@@ -8,14 +8,20 @@ public class TestException {
 
     public static void method4(){
         System.out.println("BEGIN method4");
-        try {
-            FileOutputStream fos = new FileOutputStream("save.data");
-            fos.write("Ok\n".getBytes());
-            fos.close();
-        }catch (Exception exception){
-            System.out.println("Problème d'écriture fichier. Voulez-vous recommencer (Y/N) : ");
-            Scanner scanner = new Scanner(System.in);
-            scanner.nextLine();
+        while (true) {
+            try {
+                FileOutputStream fos = new FileOutputStream("save.data");
+                fos.write("Ok\n".getBytes());
+                fos.close();
+                break;
+            } catch (Exception exception) {
+                System.out.println("Problème d'écriture fichier. Voulez-vous recommencer (Y/N) : ");
+                Scanner scanner = new Scanner(System.in);
+                String response = scanner.nextLine().trim();
+                if (response.equalsIgnoreCase("n")){
+                    break;
+                }
+            }
         }
         System.out.println("END method4");
     }
