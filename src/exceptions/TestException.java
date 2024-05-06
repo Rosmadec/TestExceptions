@@ -1,7 +1,6 @@
 package exceptions;
 
-public class testException {
-
+public class TestException {
     public static void method3(){
         System.out.println("BEGIN method3");
         int value = (int) (Math.random()*3);
@@ -27,8 +26,5 @@ public class testException {
         method1();
         System.out.println("END main");
     }
-
-
-
 
 }
