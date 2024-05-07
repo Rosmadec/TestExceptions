@@ -6,6 +6,19 @@ import java.io.IOException;
 
 public class FileWriter {
 
+    public static void saveDataTryWithResources(){
+
+        try(FileOutputStream fos = new FileOutputStream("save.data")){
+
+            fos.write("ok3".getBytes());
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        System.out.println("Ecriture terminée (TWR)");
+    }
+
+
+
     public static void saveDataFinally() {
 
         FileOutputStream fos = null;
@@ -17,15 +30,25 @@ public class FileWriter {
             exception.printStackTrace();
 
         } finally {
-            System.out.println("In the finally block");
+            //System.out.println("In the finally block");
+            if(fos != null){
+                try {
+                    fos.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
         }
+
+        System.out.println("Ecriture terminée");
 
     }
 
     public static void main(String[] args) {
 
 
-        saveDataFinally();
+        //saveDataFinally();
+        saveDataTryWithResources();
 
 
     }
